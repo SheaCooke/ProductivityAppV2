@@ -26,7 +26,7 @@ namespace ProductivityAppV2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            string connectionString = "server=localhost;userid=productivityappv2;password=123;database=productivityappv2;";
+            string connectionString = "server=localhost;userid=prodappv2;password=123;database=productivityappv2;";
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
             services.AddDbContext<TaskDbContext>(options => options.UseMySql(connectionString, serverVersion));
         }
