@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using ProductivityAppV2.Models
+using ProductivityAppV2.Models;
 
 namespace ProductivityAppV2.Models
 {
     public class Task
     {
+        [Key]
+        public int Id { get; set; }
         public string Description { get; set; }
 
         public string Notes { get; set; }
@@ -16,7 +19,7 @@ namespace ProductivityAppV2.Models
 
         public DateTime DueDate { get; set; }
 
-        public int Id { get; set; }
+        
 
         public Priority Priority { get; set; }
 
@@ -32,6 +35,8 @@ namespace ProductivityAppV2.Models
             this.DueDate = dueDate;
             this.Priority = priority;
         }
+
+
     }
 
 

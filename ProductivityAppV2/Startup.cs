@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProductivityAppV2.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace ProductivityAppV2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            string connectionString = "server=localhost;userid=productivityappv2;password=123;database=productivityappv2;";
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+            services.AddDbContext<TaskDbContext>(options => options.UseMySql(connectionString, serverVersion));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
