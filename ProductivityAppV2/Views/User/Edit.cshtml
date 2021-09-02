@@ -1,0 +1,33 @@
+﻿@using ProductivityAppV2.ViewModel;
+@model AddTaskViewModel;
+
+<h3>Edit Task</h3>
+<br />
+<div class="box-shadow">
+    <form method="post" asp-action="EditPost" asp-controller="User" asp-route-id="@ViewBag.task.Id">
+
+        <label asp-for="Description">Description: </label>
+        <input type="text" asp-for="Description" value="@ViewBag.task.Description" />
+        <span asp-validation-for="Description"></span>
+
+        <label asp-for="Notes">Notes: </label>
+        <input type="text" asp-for="Notes" value="@ViewBag.task.Notes" />
+
+        <label asp-for="DueDate">Due Date: </label>
+        <input type="datetime-local" asp-for="DueDate" value="" required/>
+
+        <label asp-for="Priority">Priority: </label>
+        <select asp-for="Priority" asp-items="Model.PriorityList"></select>
+        <span asp-validation-for="Priority"></span>
+
+       @* @Html.DropDownListFor(
+        Model => Model.Priority,Enum.GetNames(typeof(Priority)).Select(e => new SelectListItem { Text = e }),"-- Select a Priority --",new { @class = "form-control" })*@
+        
+
+        <input type="submit" value="Save Changes" />
+
+
+    </form>
+</div>
+
+

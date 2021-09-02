@@ -60,13 +60,47 @@ namespace ProductivityAppV2.Controllers
             }
 
             return View("AddTask", addTaskViewModel);
-
-
-
-
             
         }
 
+
+        public IActionResult Completed(int Id)
+        {
+            _context.Tasks.Remove(_context.Tasks.Find(Id));
+            _context.SaveChanges();
+
+            return Redirect("/User/Index");
+        }
+
+        
+        public IActionResult Edit(int Id)
+        {
+
+            ViewBag.task = _context.Tasks.Find(Id);
+            
+
+            AddTaskViewModel addTaskViewModel = new AddTaskViewModel();
+
+            return View(addTaskViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult EditPost(AddTaskViewModel addTaskViewModel, [FromRoute]int Id)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Tasks.Where(x => x.Id == Id).ToList().ForEach(x => x.Description = addTaskViewModel.Description);
+                _context.Tasks.Where(x => x.Id == Id).ToList().ForEach(x => x.Notes = addTaskViewModel.Notes);
+                _context.Tasks.Where(x => x.Id == Id).ToList().ForEach(x => x.DueDate = addTaskViewModel.DueDate);
+                _context.Tasks.Where(x => x.Id == Id).ToList().ForEach(x => x.Priority = addTaskViewModel.Priority);
+
+                _context.SaveChanges();
+                return Redirect("/User/Index");
+            }
+
+            return View(addTaskViewModel);
+            
+        }
 
 
 

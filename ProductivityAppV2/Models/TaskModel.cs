@@ -21,7 +21,7 @@ namespace ProductivityAppV2.Models
 
         
 
-        public Priority Priority { get; set; }
+        public Priority? Priority { get; set; }
 
         public TaskModel() { }
 

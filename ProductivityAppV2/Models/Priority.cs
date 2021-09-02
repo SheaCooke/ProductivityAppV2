@@ -7,6 +7,7 @@ namespace ProductivityAppV2.Models
 {
     public enum Priority
     {
+        
         High,
         Low
 
