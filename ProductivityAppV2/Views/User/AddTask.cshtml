@@ -1,0 +1,24 @@
+﻿@using ProductivityAppV2.ViewModel
+@model AddTaskViewModel
+
+<div class="box-shadow">
+    <form method="post" asp-action="AddTaskPost" asp-controller="User">
+
+        <label asp-for="Description">Description: </label>
+        <input type="text" asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+
+        <label asp-for="Notes">Notes: </label>
+        <input type="text" asp-for="Notes" />
+
+        <label asp-for="DueDate">Due Date: </label>
+        <input type="datetime-local" asp-for="DueDate" value=""/>
+
+        <label asp-for="Priority">Priority: </label>
+        <select asp-for="Priority" asp-items="Model.PriorityList" aria-label="Select Priority"></select>
+        <span asp-validation-for="Priority"></span>
+
+        <input type="submit" value="Add Task" />
+
+    </form>
+</div>

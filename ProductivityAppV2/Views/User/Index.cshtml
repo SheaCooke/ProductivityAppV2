@@ -1,2 +1,49 @@
-﻿
-<h1>Working!</h1>
+﻿@using ProductivityAppV2.Models;
+@model List<TaskModel>;
+
+
+
+<div class="box-shadow">
+    <h3>To Do: </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">  </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                if (i.Priority == 0)
+                {
+
+                    <tr>
+                        <td style="background-color:lightcoral;">@i.Description</td>
+                        <td style="background-color:lightcoral;">@i.Notes</td>
+                        <td style="background-color:lightcoral;">@i.DateAdded</td>
+                        <td style="background-color:lightcoral;">@i.DueDate</td>
+                    </tr>
+
+                }
+                else
+                {
+                    <tr>
+                        <td>@i.Description</td>
+                        <td>@i.Notes</td>
+                        <td>@i.DateAdded</td>
+                        <td>@i.DueDate</td>
+                    </tr>
+                }
+
+            }
+
+
+        </tbody>
+       
+    </table>
+
+</div>

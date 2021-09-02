@@ -15,8 +15,9 @@ namespace ProductivityAppV2.ViewModel
 
         public string Notes { get; set; }
         public DateTime DateAdded { get; set; }
-        public DateTime DateCompleted { get; set; }
 
+       
+        [Required(ErrorMessage = "This field is required.")]
         public DateTime DueDate { get; set; }
 
         public int Id { get; set; }

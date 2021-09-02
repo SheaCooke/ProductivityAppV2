@@ -7,7 +7,7 @@ using ProductivityAppV2.Models;
 
 namespace ProductivityAppV2.Models
 {
-    public class Task
+    public class TaskModel
     {
         [Key]
         public int Id { get; set; }
@@ -15,7 +15,7 @@ namespace ProductivityAppV2.Models
 
         public string Notes { get; set; }
         public DateTime DateAdded { get; set; }
-        public DateTime DateCompleted { get; set; }
+        
 
         public DateTime DueDate { get; set; }
 
@@ -23,15 +23,14 @@ namespace ProductivityAppV2.Models
 
         public Priority Priority { get; set; }
 
-        public Task() { }
+        public TaskModel() { }
 
 
-        public Task(string description, string notes, DateTime dateAdded, DateTime dateCompleted, DateTime dueDate, Priority priority) :this()
+        public TaskModel(string description, string notes, DateTime dateAdded, DateTime dueDate, Priority priority) :this()
         {
             this.Description = description;
             this.Notes = notes;
             this.DateAdded = dateAdded;
-            this.DateCompleted = dateCompleted;
             this.DueDate = dueDate;
             this.Priority = priority;
         }
