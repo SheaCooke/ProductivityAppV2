@@ -51,3 +51,9 @@ C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\Prod
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\AddTask.cshtml.g.cs
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\Charts.cshtml.g.cs
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\ServiceStack.Text.dll
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\Nancy.dll
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\Newtonsoft.Json.dll

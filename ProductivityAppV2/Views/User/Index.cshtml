@@ -2,59 +2,100 @@
 @model List<TaskModel>;
 
 
+<body onload="execute()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 bg-success">
+                <p>US Market</p>
+                <p>SP 500</p>
+                <p>DJIA</p>
+                <p>R2000</p>
+            </div>
+            
 
-<div class="box-shadow">
-    <h3>To Do: </h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">  </th>
-                <th scope="col">Description</th>
-                <th scope="col">Notes</th>
-                <th scope="col">Date Added</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">  </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var i in Model)
-            {
-                if (i.Priority == 0)
+        </div>
+    </div>
+    <div class="box-shadow">
+        <h3>To Do: </h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">  </th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">  </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
                 {
+                    if (i.Priority == 0)
+                    {
 
-                    <tr>
-                        <td style="background-color:lightcoral;"><a asp-controller="User" asp-action="Edit" id="button" asp-route-id="@i.Id">Edit</a></td>
-                        <td style="background-color:lightcoral;">@i.Description</td>
-                        <td style="background-color:lightcoral;">@i.Notes</td>
-                        <td style="background-color:lightcoral;">@i.DateAdded</td>
-                        <td style="background-color:lightcoral;">@i.DueDate</td>
-                        <td style="background-color:lightcoral;"><a asp-controller="User" asp-action="Completed" id="button" asp-route-id="@i.Id">Completed</a></td>
+                        <tr>
+                            <td style="background-color:lightcoral;"><a asp-controller="User" asp-action="Edit" id="button" asp-route-id="@i.Id">Edit</a></td>
+                            <td style="background-color:lightcoral;">@i.Description</td>
+                            <td style="background-color:lightcoral;">@i.Notes</td>
+                            <td style="background-color:lightcoral;">@i.DateAdded</td>
+                            <td style="background-color:lightcoral;">@i.DueDate</td>
+                            <td style="background-color:lightcoral;"><a asp-controller="User" asp-action="Completed" id="button" asp-route-id="@i.Id">Completed</a></td>
 
-                    </tr>
+                        </tr>
+
+                    }
+                    else
+                    {
+                        <tr>
+                            <td><a asp-controller="User" asp-action="Edit" id="button" asp-route-id="@i.Id">Edit</a></td>
+                            <td>@i.Description</td>
+                            <td>@i.Notes</td>
+                            <td>@i.DateAdded</td>
+                            <td>@i.DueDate</td>
+                            <td><a asp-controller="User" asp-action="Completed" id="button" asp-route-id="@i.Id">Completed</a></td>
+                        </tr>
+                    }
 
                 }
-                else
-                {
-                    <tr>
-                        <td><a asp-controller="User" asp-action="Edit" id="button" asp-route-id="@i.Id">Edit</a></td>
-                        <td>@i.Description</td>
-                        <td>@i.Notes</td>
-                        <td>@i.DateAdded</td>
-                        <td>@i.DueDate</td>
-                        <td><a asp-controller="User" asp-action="Completed" id="button" asp-route-id="@i.Id">Completed</a></td>
-                    </tr>
-                }
-
-            }
 
 
-        </tbody>
+            </tbody>
 
-    </table>
-</div>
-<br />
-<br />
+        </table>
+    </div>
+    <br />
+    <br />
 
-<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FLos_Angeles&src=c2hlYXNjb29rZUBnbWFpbC5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZmFtaWx5MDc5ODM3Njc0OTI4NzUyNTA2NDVAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%23D81B60&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FLos_Angeles&src=c2hlYXNjb29rZUBnbWFpbC5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZmFtaWx5MDc5ODM3Njc0OTI4NzUyNTA2NDVAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%23D81B60&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-@*UXD8IO8G9JDRSINF*@
+    @*UXD8IO8G9JDRSINF*@
+</body>
+
+ <script>
+    
+
+     function execute() {
+         
+         
+         fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AVUV&apikey=UXD8IO8G9JDRSINF')
+             .then(response => response.json())
+             .then(data => console.log(data));
+
+         fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=VTI&apikey=UXD8IO8G9JDRSINF')
+             .then(response => response.json())
+             .then(data => console.log(data));
+
+         //setTimeout(execute, 5000)
+         
+         };
+
+     
+
+
+
+
+
+
+ </script>
+    
