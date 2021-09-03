@@ -21,7 +21,10 @@ namespace ProductivityAppV2.Models
 
         
 
-        public Priority? Priority { get; set; }
+        public Priority Priority { get; set; }
+
+        public Day Day { get; set; }
+        public int DayId { get; set; }
 
         public TaskModel() { }
 

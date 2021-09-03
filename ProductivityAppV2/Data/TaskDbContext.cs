@@ -12,6 +12,8 @@ namespace ProductivityAppV2.Data
     {
         public DbSet<TaskModel> Tasks { get; set; }
 
+        public DbSet<Day> Days { get; set; }
+
         public TaskDbContext(DbContextOptions<TaskDbContext> options) : base(options) { }
 
 

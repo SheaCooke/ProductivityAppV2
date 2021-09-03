@@ -44,13 +44,15 @@ namespace ProductivityAppV2.Controllers
         {
             if (ModelState.IsValid)
             {
+                Day newDay = new Day();
                 TaskModel newTask = new TaskModel
                 {
                      Description = addTaskViewModel.Description,
                      Notes = addTaskViewModel.Notes,
                      DateAdded = DateTime.Now,
                      DueDate = addTaskViewModel.DueDate,
-                     Priority = addTaskViewModel.Priority
+                     Priority = addTaskViewModel.Priority,
+                     Day = newDay
                  };
 
                 _context.Add(newTask);
@@ -66,7 +68,10 @@ namespace ProductivityAppV2.Controllers
 
         public IActionResult Completed(int Id)
         {
+            Day removed = new Day($"Removed {DateTime.Today.DayOfWeek.ToString()}");
+
             _context.Tasks.Remove(_context.Tasks.Find(Id));
+            _context.Days.Add(removed);
             _context.SaveChanges();
 
             return Redirect("/User/Index");
