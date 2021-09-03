@@ -50,3 +50,4 @@ C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\Prod
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\AddTask.cshtml.g.cs
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\ProductivityAppV2\ProductivityAppV2\ProductivityAppV2\obj\Debug\net5.0\Razor\Views\User\Charts.cshtml.g.cs

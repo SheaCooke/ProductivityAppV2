@@ -107,7 +107,30 @@ namespace ProductivityAppV2.Controllers
             
         }
 
+        public IActionResult Charts()
+        {
+            ViewBag.HighPri = _context.Tasks.Where(x => x.Priority == Priority.High).ToArray();
+            ViewBag.LowPri = _context.Tasks.Where(x => x.Priority == Priority.Low).ToArray();
+            ViewBag.DataPoints = _context.Tasks.ToArray();
 
+            ViewBag.Monday = _context.Days.Where(x => x.DOW == "Monday").ToArray();
+            ViewBag.Tuesday = _context.Days.Where(x => x.DOW == "Tuesday").ToArray();
+            ViewBag.Wednesday = _context.Days.Where(x => x.DOW == "Wednesday").ToArray();
+            ViewBag.Thursday = _context.Days.Where(x => x.DOW == "Thursday").ToArray();
+            ViewBag.Friday = _context.Days.Where(x => x.DOW == "Friday").ToArray();
+            ViewBag.Saturday = _context.Days.Where(x => x.DOW == "Saturday").ToArray();
+            ViewBag.Sunday = _context.Days.Where(x => x.DOW == "Sunday").ToArray();
+
+            ViewBag.RemovedMon = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Monday")).ToArray();
+            ViewBag.RemovedTue = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Tuesday")).ToArray();
+            ViewBag.RemovedWed = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Wednesday")).ToArray();
+            ViewBag.RemovedThu = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Thursday")).ToArray();
+            ViewBag.RemovedFri = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Friday")).ToArray();
+            ViewBag.RemovedSat = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Saturday")).ToArray();
+            ViewBag.RemovedSun = _context.Days.Where(x => x.DOW.Contains("Removed") && x.DOW.Contains("Sunday")).ToArray();
+
+            return View();
+        }
 
 
 

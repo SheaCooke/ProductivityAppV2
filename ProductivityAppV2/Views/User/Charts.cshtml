@@ -1,0 +1,125 @@
+﻿@using ProductivityAppV2.Data
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <title>Index</title>
+</head>
+<body>
+    <div class="box" id="chartContainer" style="width: 60%; height: 300px;display: inline-block;"></div>
+    <br /><br />
+    <div class="box" id="chartContainer2" style="width: 60%; height: 300px;display: inline-block;"></div>
+    <br /><br />
+    <div class="box" id="chartContainer3" style="width: 60%; height: 300px;display: inline-block;"></div>
+
+    <script type="text/javascript">
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer", {
+                axisY: {
+                    title: "Amount",
+                    interlacedColor: "#F8F1E4",
+                    tickLength: 10
+				},
+				axisX: {
+					title: "Type of Task"
+                },
+				theme: "light2",
+				animationEnabled: true,
+				title: {
+					text: "Amount of tasks"
+				},
+				subtitles: [
+					{ text: "" }
+				],
+				data: [
+				{
+					type: "column", //change type to bar, line, area, pie, etc
+					dataPoints: [
+						{ y: @ViewBag.DataPoints.Length, label: "Total tasks remaining" },
+						{ y: @ViewBag.HighPri.Length, label: "High priority tasks remaining" },
+						{ y: @ViewBag.LowPri.Length, label: "Low priority tasks remaining"}
+					]
+				}
+				]
+			});
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                axisY: {
+                    title: "Tasks added by day",
+                    interlacedColor: "#F8F1E4",
+                    tickLength: 10
+				},
+				axisX: {
+					title: "Day"
+                },
+				theme: "light2",
+				animationEnabled: true,
+				title: {
+					text: "User History: Tasks Added By Day"
+				},
+				subtitles: [
+					{ text: "" }
+				],
+				data: [
+				{
+					type: "column", //change type to bar, line, area, pie, etc
+						dataPoints: [
+							{ y: @ViewBag.Monday.Length, label: "Monday" },
+							{ y: @ViewBag.Tuesday.Length, label: "Tuesday" },
+							{ y: @ViewBag.Wednesday.Length, label: "Wednesday" },
+							{ y: @ViewBag.Thursday.Length, label: "Thursday" },
+							{ y: @ViewBag.Friday.Length, label: "Friday" },
+							{ y: @ViewBag.Saturday.Length, label: "Saturday" },
+						    { y: @ViewBag.Sunday.Length, label: "Sunday" }
+					]
+				}
+				]
+			});
+			var chart3 = new CanvasJS.Chart("chartContainer3", {
+                axisY: {
+                    title: "Tasks completed by day",
+                    interlacedColor: "#F8F1E4",
+                    tickLength: 10
+				},
+				axisX: {
+					title: "Day"
+                },
+				theme: "light2",
+				animationEnabled: true,
+				title: {
+					text: "User History: Tasks Completed By Day"
+				},
+				subtitles: [
+					{ text: "" }
+				],
+				data: [
+				{
+					type: "pie", //change type to bar, line, area, pie, etc
+						dataPoints: [
+							{ y: @ViewBag.RemovedMon.Length, label: "Monday" },
+							{ y: @ViewBag.RemovedTue.Length, label: "Tuesday" },
+							{ y: @ViewBag.RemovedWed.Length, label: "Wednesday"},
+							{ y: @ViewBag.RemovedThu.Length, label: "Thursday"},
+							{ y: @ViewBag.RemovedFri.Length, label: "Friday" },
+							{ y: @ViewBag.RemovedSat.Length, label: "Saturday"},
+						    { y: @ViewBag.RemovedSun.Length, label: "Sunday" }
+					]
+				}
+				]
+			});
+            chart.render();
+			chart2.render();
+            chart3.render();
+		};
+    </script>
+
+    @*<br />
+        <form method="post" asp-controller="User" asp-action="ResetHistory">
+            <input type="submit" value="Clear all " />
+        </form>
+    *@
+
+</body>
+</html>			
