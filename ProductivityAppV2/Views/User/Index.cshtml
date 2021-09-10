@@ -4,14 +4,17 @@
 
 <body onload="execute()">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 bg-success">
-                <p>US Market</p>
-                <p>SP 500</p>
-                <p>DJIA</p>
-                <p>R2000</p>
-            </div>
-            
+        <div class="bg-info">
+            <marquee behavior="scroll" direction="left">
+                
+
+                <p id="US"></p>
+
+                <p id="R2K"></p>
+
+                <p id="FM"></p>
+
+            </marquee>
 
         </div>
     </div>
@@ -67,7 +70,7 @@
     <br />
     <br />
 
-    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FLos_Angeles&src=c2hlYXNjb29rZUBnbWFpbC5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZmFtaWx5MDc5ODM3Njc0OTI4NzUyNTA2NDVAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%23D81B60&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?src=sheascooke%40gmail.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
     @*UXD8IO8G9JDRSINF*@
 </body>
@@ -78,13 +81,26 @@
      function execute() {
          
          
-         fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AVUV&apikey=UXD8IO8G9JDRSINF')
-             .then(response => response.json())
-             .then(data => console.log(data));
-
          fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=VTI&apikey=UXD8IO8G9JDRSINF')
              .then(response => response.json())
-             .then(data => console.log(data));
+             .then(res => {
+                 var element = document.getElementById("US");
+                 element.textContent += `US Total Market: ${res["Global Quote"]["10. change percent"]}  |`;
+             });
+
+         fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=VRTIX&apikey=UXD8IO8G9JDRSINF')
+             .then(response => response.json())
+             .then(res => {
+                 var element = document.getElementById("R2K");
+                 element.textContent += `US Small Caps: ${res["Global Quote"]["10. change percent"]}  |`;
+             });
+
+         fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=VXUS&apikey=UXD8IO8G9JDRSINF')
+             .then(response => response.json())
+             .then(res => {
+                 var element = document.getElementById("FM");
+                 element.textContent += `Foreign Markets: ${res["Global Quote"]["10. change percent"]}  |`;
+             });
 
          //setTimeout(execute, 5000)
          
